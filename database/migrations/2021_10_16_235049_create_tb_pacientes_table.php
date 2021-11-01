@@ -14,7 +14,7 @@ class CreateTbPacientesTable extends Migration
     public function up()
     {
         Schema::create('tb_pacientes', function (Blueprint $table) {
-            $table->increments('id_paciente');
+            $table->increments('id');
             $table->string('nome',200);
             $table->string('genero', 50);
             $table->string('email', 200);

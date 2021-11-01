@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class tbPacientes extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nome', 'genero', 'email','idade'];
 }
+
+

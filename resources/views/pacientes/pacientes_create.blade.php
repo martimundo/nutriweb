@@ -12,32 +12,27 @@
 
 @section('content')
     <form action="{{ url('admin/pacientes') }}" method="post">
+        <input type="hidden" name="id" value="{{$paciente->id ?? ''}}">
         @csrf
-        {{-- With multiple slots and lg size --}}
-        <x-adminlte-input fgroup-class="col-md-6" name="procurar" label="Localizar Paciente" placeholder="faça aqui a procurar"
-            igroup-size="sm">
-            <x-slot name="appendSlot">
-                <x-adminlte-button theme="outline-success" type="submit" label="buscar!" />
-                
-            </x-slot>
-            <x-slot name="prependSlot">
-                <div class="input-group-text text-primary">
-                    <i class="fas fa-search"></i>
-                </div>
-            </x-slot>
-        </x-adminlte-input>
         <div class="row">
             <x-adminlte-input igroup-size="sm" name="nome" label="Nome" placeholder="Nome do Paciente"
-                fgroup-class="col-md-6" value="{{ old('nome') }}" />
-            <x-adminlte-input name="idade" label="Idade" igroup-size="sm" placeholder="Idade" fgroup-class="col-md-6"
-                value="{{ old('idade') }}" />
+                fgroup-class="col-md-6" value="{{$paciente->nome ?? old('nome') }}" />
+            <x-adminlte-input name="idade" label="Idade" igroup-size="sm" placeholder="Idade" fgroup-class="col-md-4"
+                value="{{$paciente->idade ?? old('idade') }}" />
         </div>
-        <x-adminlte-input fgroup-class="col-md-4" name="email" value="{{ old('email') }}" label="Email" type="email"
-            igroup-size="sm" icon="fas fa-lg fa-envelope" placeholder="mail@example.com" />
-        <x-adminlte-select fgroup-class="col-md-4" igroup-size="sm" label="Genero" name="genero">
-            <x-adminlte-options :options="['Selecione uma opção','Masculino', 'Feminino', 'Prefiro não informar']"
-                disabled="0" empty-option="Selecione uma opção" />
-        </x-adminlte-select>
+        <div class="form-row">
+            <x-adminlte-input fgroup-class="col-md-6" name="email" value="{{$paciente->email ?? old('email') }}" label="Email" type="email"
+                igroup-size="sm" icon="fas fa-lg fa-envelope" placeholder="mail@example.com" />
+            <div class="form-group col-md-4">
+              <label for="input">Sexo</label>
+              <select id="input" class="form-control" name="genero">
+                <option selected>Selecione...</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Sem Informação">Sem Informação</option>
+              </select>
+            </div>
+        </div>
         <x-adminlte-button class="btn-flat" type="submit" label="Salvar" theme="primary" icon="fas fa-sm fa-save" />
         <a href="{{ url('admin/pacientes/listar') }}" class="btn btn-md bg-warning text-primary mx-1 shadow"><i
                 class="fa fa-lg fa-exclamation-triangle"></i>Lista de Pacientes</a>
