@@ -22,6 +22,8 @@ Auth::routes();
 //********************************Routes Get***********************************************
 //Route::get('admin/settings', [App\Http\Controllers\TbCardapiosController::class, 'index'])->name('cardapios');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'listarDados'])->name('home');
+
 
 Route::get('admin/cardapios/list', [App\Http\Controllers\TbCardapiosController::class, 'index'])->name('cardapios_list');
 Route::get('admin/cardapios/create', [App\Http\Controllers\TbCardapiosController::class, 'create'])->name('cardapios_create');
@@ -31,6 +33,7 @@ Route::get('admin/pacientes', [App\Http\Controllers\TbPacientesController::class
 Route::get('admin/controleAcesso', [App\Http\Controllers\TbAcessosController::class, 'index'])->name('cotrolacess');
 Route::get('admin/pacientes/listar', [App\Http\Controllers\TbPacientesController::class, 'listar'])->name('pacientes.listar');
 Route::get('admin/pacientes/editar/{id}', [App\Http\Controllers\TbPacientesController::class, 'editar'])->name('paciente.editar');
+Route::get('admin/pacientes/excluir/{id}', [App\Http\Controllers\TbPacientesController::class, 'excluir'])->name('paciente.excluir');
 
 //********************************Routes Post***********************************************
 Route::post('admin/cardapios/create',      [App\Http\Controllers\TbCardapiosController::class, 'store'])->name('cardapios');

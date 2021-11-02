@@ -14,7 +14,7 @@ class CreateTbPlanosTable extends Migration
     public function up()
     {
         Schema::create('tb_planos', function (Blueprint $table) {
-            $table->increments('tb_planos');
+            $table->id();
             $table->text('desc_plano');
             $table->timestamps();
         });

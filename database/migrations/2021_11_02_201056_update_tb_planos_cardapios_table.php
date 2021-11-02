@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbAcessosTable extends Migration
+class UpdateTbPlanosCardapiosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateTbAcessosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_acessos', function (Blueprint $table) {
-            $table->increments('id_acesso');
-            $table->string('perfil', 30)->nullable();
-            $table->timestamps();
+        Schema::table('tb_planos_cardapios',function(Blueprint $table){
+
+            //$table->renameColumn('plano_cardapio_id', 'plano_id');
+            //$table->renameColumn('cardapio_plano_id', 'cardapio_id');
+            $table->foreignId('pacientes_id')->constrained('tb_pacientes');
+            
         });
     }
 
@@ -27,6 +29,6 @@ class CreateTbAcessosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_acessos');
+        //
     }
 }

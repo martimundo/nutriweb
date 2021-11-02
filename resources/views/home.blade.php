@@ -33,7 +33,7 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Mais detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{url('/admin/cardapios/list')}}" class="small-box-footer">Mais detalhes <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
@@ -45,7 +45,7 @@
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Mais detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{url('/admin/pacientes/listar')}}" class="small-box-footer">Mais detalhes <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
@@ -67,16 +67,16 @@
                     <div class="card">
                         <div class="card-header border-0">
                             <h3 class="card-title">Listagem de Pacientes</h3>
-                            
-                                <div class="card-tools">
-                                    <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-download"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-bars"></i>
-                                    </a>
-                                </div>
-                           
+
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-bars"></i>
+                                </a>
+                            </div>
+
                         </div>
                         <div class="card-body table-responsive p-0">
                             <table class="table table-striped table-valign-middle table-responsive">
@@ -86,12 +86,20 @@
                                         <th>Nome</th>
                                         <th>E-mail</th>
                                         <th>Idade</th>
-                                        <th>Perfil</th>
-                                        <th></th>
+                                        <th>Genero</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                    @foreach ($pacientes as $dado)
+                                        <tr>
+                                            <td>{{ $dado->id }}</td>
+                                            <td>{{ $dado->nome }}</td>
+                                            <td>{{ $dado->eail }}</td>
+                                            <td>{{ $dado->idade }}</td>
+                                            <td>{{ $dado->genero }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <div class="d-felx justify-content-center">

@@ -55,13 +55,12 @@
                             </a>
                         </td>
                         <td>
-                            <form action="" method="POST">
-                                <button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Deletar">
-                                    <i class="fa fa-lg fa-fw fa-trash"></i>
-                                </button>
-                            </form>
+                            <a href="{{ url('admin/pacientes/excluir', $item->id) }}"
+                                class="btn btn-xs btn-default text-danger mx-1 shadow" title="Excluir">
+                                <i class="fa fa-lg fa-fw fa-trash"></i>
+                            </a>                            
                         </td>
-                        <td><a href="" class="btn btn-xs btn-default text-teal mx-1 shadow" title="Detalhes">
+                        <td><a href="" class="btn btn-xs btn-default text-warning mx-1 shadow" title="Detalhes">
                                 <i class="fa fa-lg fa-fw fa-eye"></i></td>
                     </tr>
                 @endforeach

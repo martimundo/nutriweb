@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbCardapiosTable extends Migration
+class UpdateTbPacientesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateTbCardapiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_cardapios', function (Blueprint $table) {
-            $table->id();
-            $table->text('desc_cardapio')->nullable();
-            $table->timestamps();
+        Schema::table('tb_pacientes',function(Blueprint $table){
+
+            $table->foreignId('nutri_id')->constrained('tb_nutricionistas');
+            $table->foreignId('evolseman_id')->constrained('tb_evolucoes_semanais');
         });
+        
     }
 
     /**
@@ -27,6 +28,6 @@ class CreateTbCardapiosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_cardapios');
+        //
     }
 }

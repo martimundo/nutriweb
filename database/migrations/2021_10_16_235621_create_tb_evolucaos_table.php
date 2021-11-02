@@ -14,7 +14,7 @@ class CreateTbEvolucaosTable extends Migration
     public function up()
     {
         Schema::create('tb_evolucaos', function (Blueprint $table) {
-            $table->increments('id_evolucoes');
+            $table->id();
             $table->string('dific_alimentar')->nullable();
             $table->decimal('circ_cintura', 10,2)->nullable();
             $table->decimal('circ_quadril', 10,2)->nullable();

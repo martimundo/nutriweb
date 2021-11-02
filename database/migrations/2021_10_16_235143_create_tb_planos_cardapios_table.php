@@ -14,9 +14,9 @@ class CreateTbPlanosCardapiosTable extends Migration
     public function up()
     {
         Schema::create('tb_planos_cardapios', function (Blueprint $table) {
-            $table->increments('id_planos_cardapio');
-          //  $table->foreign('planos_id')->references('id_planos')->on('tb_planos');
-            //$table->foreign('cardapio_id')->references('id_cardapios')->on('tb_cardapios');
+            
+            $table->integer('plano_cardapio_id');          
+            $table->integer('cardapio_plano_id');
             $table->timestamps();
         });
     }

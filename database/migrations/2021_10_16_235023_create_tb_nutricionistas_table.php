@@ -14,7 +14,7 @@ class CreateTbNutricionistasTable extends Migration
     public function up()
     {
         Schema::create('tb_nutricionistas', function (Blueprint $table) {
-            $table->increments('id_nutri');
+            $table->id();
             $table->string('crn')->unique();
             $table->string('nome');
             //$table->foreign('acesso_id')->references('id_acesso')->on('tb_acessos');

@@ -14,13 +14,11 @@ class CreateTbEvolucoesSemanaisTable extends Migration
     public function up()
     {
         Schema::create('tb_evolucoes_semanais', function (Blueprint $table) {
-            $table->increments('id_evolsem');
+            $table->id();
             $table->decimal('circ_cintura', 10,2)->nullable();
             $table->decimal('peso', 10,2)->nullable();
             $table->decimal('circ_quadril', 10,2)->nullable();
-            $table->text('observ');
-            $table->integer('status');
-            //$table->foreign('id_paciente')->references('id_paciente')->on('tb_pacientes');
+            $table->text('observ');                       
             $table->timestamps();
         });
     }

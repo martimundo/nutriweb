@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\tbPacientes;
 
 
+
 class HomeController extends Controller
 {
     protected $pacientes;
@@ -28,11 +29,11 @@ class HomeController extends Controller
        
         return view('home');
     }
-    public function listar(){
+    public function listarDados(){
 
-        $dados['pacientes']=tbPacientes::paginate(4);
-        return view('pacientes.listar', $dados);
+        $dados['pacientes']=tbPacientes::paginate(10);
+        return view('home', $dados);
     }
-    
+       
 
 }

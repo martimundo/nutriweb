@@ -101,6 +101,11 @@ class TbPacientesController extends Controller
         return view('pacientes.pacientes_create', ['paciente'=>$paciente, ]);
 
     }
+    public function excluir($id){
+
+        tbPacientes::find($id)->delete();
+        return redirect()->route('home');
+    }
     /**
      * Display the specified resource.
      *

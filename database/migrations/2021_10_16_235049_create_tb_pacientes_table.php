@@ -14,15 +14,13 @@ class CreateTbPacientesTable extends Migration
     public function up()
     {
         Schema::create('tb_pacientes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('nome',200);
             $table->string('genero', 50);
             $table->string('email', 200);
-            $table->string('idade', 3);
-           // $table->foreign('acessos_id')->references('id_acessos')->on('tb_acessos');
-           // $table->foreign('nutri_id')->references('id_nutri')->on('tb_nutricionistas');
-           // $table->foreign('evolucao_id')->references('id_evolucoes')->on('tb_evolucoes');
-           $table->timestamps();
+            $table->string('idade', 3);        
+            
+            $table->timestamps();
         });
     }
 

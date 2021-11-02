@@ -14,7 +14,7 @@ class CreateTbAlertasTable extends Migration
     public function up()
     {
         Schema::create('tb_alertas', function (Blueprint $table) {
-            $table->increments('id_alerta');
+            $table->id();
             $table->text('mensagem')->nullable();
             $table->integer('resolvido');
             //$table->foreign('id_paciente')->references('id_pacientes')->on('tb_pacientes');
