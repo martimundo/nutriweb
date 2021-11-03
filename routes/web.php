@@ -26,6 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'listarDados'])
 
 
 Route::get('admin/cardapios/list', [App\Http\Controllers\TbCardapiosController::class, 'index'])->name('cardapios_list');
+Route::get('admin/nutricionista/listar', [App\Http\Controllers\TbNutricionistasController::class, 'listar'])->name('nutricionista_listar');
 Route::get('admin/cardapios/create', [App\Http\Controllers\TbCardapiosController::class, 'create'])->name('cardapios_create');
 Route::get('admin/evolucoes', [App\Http\Controllers\TbEvolucaoController::class, 'index'])->name('evolucoes');
 Route::get('admin/nutricionistas', [App\Http\Controllers\TbNutricionistasController::class, 'index'])->name('nutricionistas');

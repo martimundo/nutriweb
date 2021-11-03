@@ -29,7 +29,6 @@ class TbPacientesController extends Controller
     public function listar(Request  $request){
 
         $dados['pacientes']=tbPacientes::paginate(10);
-
         return view('pacientes.listar', $dados);
     }
 

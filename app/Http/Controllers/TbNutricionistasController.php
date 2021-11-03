@@ -13,18 +13,8 @@ class TbNutricionistasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('gerenciar.nutricionistas');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    {   $nutricionista['nutricionistas'] = tbNutricionistas::paginate();
+        return view('gerenciar.nutricionistas', $nutricionista);
     }
 
     /**
@@ -38,12 +28,17 @@ class TbNutricionistasController extends Controller
         $nutricionista = new tbNutricionistas();
         $nutricionista->crn = $request->input('crn');
         $nutricionista->nome = $request->input('nome');
+
         if($request->hasFile('foto')){
             $nutricionista['foto']=$request->file('foto')->store('uploads','public');
         }
         $nutricionista->save();
         return redirect()->action([TbNutricionistasController::class, 'index']);
         return redirect('nutricionistas')->with('mensagem','Nutricionista Cadastrada com sucesso!');
+    }
+    public function listar(){
+        $nutricionista['nutricionistas'] = tbNutricionistas::paginate();
+        return view('gerenciar.list', $nutricionista);
     }
 
     /**
