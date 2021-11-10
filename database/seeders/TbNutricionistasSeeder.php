@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-
 use Illuminate\Database\Seeder;
 
-class Cardapios extends Seeder
+class TbNutricionistasSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class Cardapios extends Seeder
      */
     public function run()
     {
-        factory(\App\Tb_Cardapio::class, 30)->create();
+        factory(\App\tbNutricionistas::class, 15)->create();
     }
 }

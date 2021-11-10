@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TbCardapiosTableSeeder extends Seeder
+class tbEvolucoesSemanaisSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class TbCardapiosTableSeeder extends Seeder
      */
     public function run()
     {
-        //factory(\App\tbCardapios::class, 30)->create();
+        //
     }
 }

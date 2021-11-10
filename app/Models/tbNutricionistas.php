@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class tbNutricionistas extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'crn',
+        'nome',
+        'foto'
+    ];
+
+    
+    public function pacientes(){
+
+        return $this->hasMany(tbPacienes::class);
+    }
 }

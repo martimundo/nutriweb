@@ -9,13 +9,34 @@ class tbPacientes extends Model
 {
     use HasFactory;
    
-    protected $fillable = ['nome', 'genero', 'email','idade'];
+    protected $fillable = [
 
-
+        'nome', 
+        'genero', 
+        'email',
+        'idade'
+        
+    ];
+    
     public function nutricionista(){
 
-        return ;
+        return $this->belongsTo(tbNutricionistas::class);
     }
+
+    public function evolucao(){
+
+        return $this->hasOne(tbEvolucao::class);
+    }
+
+    public function evolsemanal()
+    {
+        return $this->hasMany(tbEvolucoesSemanais::class);
+    }
+    public function planoscardapios(){
+        
+        return $this->hasMany(tbPlanosCardapios::class);
+    }
+    
 }
 
 
