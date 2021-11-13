@@ -11,29 +11,17 @@ class tbEvolucao extends Model
 
 
     protected $fillable = [
-        'dific_alimentar', 
-        'circ_cintura', 
-        'circ_quadril', 
-        'hipertensao', 
-        'diabete', 
+        'dific_alimentar',
+        'circ_cintura',
+        'circ_quadril',
+        'doencas_exist',
         'altura',
-        'imc',
         'peso',
-        'pref_alimentar', 
+        'pref_alimentar',
         'intolerancia',
         'aversoes'
     ];
 
-    public function setCategoryAttributes($value){
-        $this->attributes['hipertensao'] = json_encode($value);
-        $this->attributes['diabete'] = json_encode($value);
-
-    }
-    public function getCategoryAttribute($value)
-    {
-        return $this->attributes['hipertensao'] = json_decode($value);
-        return $this->attributes['diabete'] = json_decode($value);
-    }
 
     public function paciente(){
         return $this->belongsTo(tbPacientes::class);

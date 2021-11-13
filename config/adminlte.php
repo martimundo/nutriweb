@@ -67,7 +67,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => true,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header_class' => 'bg-success',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -248,15 +248,15 @@ return [
             'icon'        => 'fas fa-house-user',
 
         ],
-        ['header' => 'account_settings'],
+        //['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => '/admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'team',
+            'url'  => '/admin/teans',
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
             'text' => 'change_password',
-            'url'  => '/admin/trocarsenha',
+           'url'  => '/admin/trocarsenha',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
@@ -271,7 +271,7 @@ return [
                     'submenu' => [
                         [
                             'text' => 'Criar Novo Cardapio',
-                            'url'  => '/admin/cardapios/create',
+                            'url'  => '/admin/cardapios/index',
                         ],
                         [
                             'text' => 'Lista de Cardapios',
@@ -295,6 +295,12 @@ return [
                     'text' => 'Pacientes',
                     'url'  => '/admin/pacientes',
                     'icon' => 'fas fa-hospital-user',
+                    'icon_color' =>'primary'
+                ],
+                [
+                    'text' => 'Planos Cardapios',
+                    'url'  => '/admin/planos/index',
+                    'icon' => 'fas fa-sort-amount-up-alt',
                     'icon_color' =>'primary'
                 ],
                 /*[

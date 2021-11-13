@@ -25,11 +25,31 @@
                 igroup-size="sm" icon="fas fa-lg fa-envelope" placeholder="mail@example.com" />
             <div class="form-group col-md-4">
               <label for="input">Sexo</label>
-              <select id="input" class="form-control" name="genero">
+              <select id="input" class="form-control form-control-sm" name="genero">
                 <option selected>Selecione...</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Feminino">Feminino</option>
                 <option value="Sem Informação">Sem Informação</option>
+              </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="input">Médica(o)Nutric...</label>
+              <select id="input" class="form-control form-control-sm" name="genero">
+                @foreach ( $nutricionista as $value )
+                <option selected>Selecione...</option>
+                <option value="{{$value->id}}">{{$value->nome}}</option> 
+                @endforeach
+              </select>
+            </div>
+        </div><div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="input">Evolução Semanal</label>
+              <select id="input" class="form-control form-control-sm" name="genero">
+                <option selected>Selecione...</option>
+                <option value="Masculino">1</option>
+                
               </select>
             </div>
         </div>

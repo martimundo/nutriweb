@@ -30,7 +30,7 @@
                 </x-slot>
             </x-adminlte-input>
         </form>
-        <table class="table table-sm table-striped table-valign-middle table-responsive">
+        <table class="table table-sm table-striped table-valign-middle table-responsive ">
             <thead>
                 <tr>
                     <th scope="col">Cod</th>
@@ -63,7 +63,7 @@
                 @endforeach
             </tbody>
         </table>
-
+        {{$nutricionista->links()}}
     </div>
     @stop
 </form>

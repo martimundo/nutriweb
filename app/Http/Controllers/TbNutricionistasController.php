@@ -13,9 +13,11 @@ class TbNutricionistasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $nutricionista['nutricionistas'] = tbNutricionistas::paginate();
+    {   
+        $nutricionista['nutricionistas'] = tbNutricionistas::paginate();
         return view('gerenciar.nutricionistas', $nutricionista);
     }
+    
 
     /**
      * Store a newly created resource in storage.

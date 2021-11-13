@@ -8,16 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class tbPacientes extends Model
 {
     use HasFactory;
-   
+
     protected $fillable = [
 
-        'nome', 
-        'genero', 
+        'nome',
+        'genero',
         'email',
         'idade'
-        
+
     ];
-    
+
     public function nutricionista(){
 
         return $this->belongsTo(tbNutricionistas::class);
@@ -33,10 +33,10 @@ class tbPacientes extends Model
         return $this->hasMany(tbEvolucoesSemanais::class);
     }
     public function planoscardapios(){
-        
+
         return $this->hasMany(tbPlanosCardapios::class);
     }
-    
+
 }
 
 

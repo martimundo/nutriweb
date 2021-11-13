@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\tbPacientes;
 use Illuminate\Http\Request;
+use App\Models\tbEvolucoesSemanais;
+use App\Models\tbNutricionistas;
 
 class TbPacientesController extends Controller
 {
@@ -24,7 +26,9 @@ class TbPacientesController extends Controller
      */
     public function create()
     {
-        return view('pacientes.pacientes_create');
+        $nutricionista = TbNutricionistas::all(['id', 'nome']);
+        $evolucoe = TbEvolucoesSemanais::all(['id']);
+        return view('pacientes.pacientes_create', compact('nutricionista'));
     }
     public function listar(Request  $request){
 
@@ -41,7 +45,7 @@ class TbPacientesController extends Controller
     public function store(Request $request)
     {
         $msg = '';
-
+        
         //Processo que realiza a inclusão de um novo paciente
         if($paciente = request()->except('_token') != '' && $paciente = request()->input('id') ==''){
 
@@ -49,12 +53,16 @@ class TbPacientesController extends Controller
                 'nome'=>'required|string|max:150',
                 'email'=>'required|string|max:150',
                 'idade'=>'required|integer',
+                'nutri_id'=>'required|integer',
+                'evolseman_id'=>'required|integer',
             ];
             $messagem=[
                 'required'=>'O campo :attribute dever ser preenchido',
                 'nome.required'=>'O campo nome do é obrigatório',
                 'email.required'=>'Preencha o email do paciente',
-                'idade.required'=>'Informe a idade do paciente'
+                'idade.required'=>'Informe a idade do paciente',
+                'nutri_id.required'=>'Informe a Médica',
+                'evolseman_id.required'=>'Informe qual a evoução'
             ];
             $this->validate($request, $campos, $messagem);
             $paciente = request()->except('_token');

@@ -25,23 +25,15 @@
                 </div>
             </x-slot>
         </x-adminlte-input>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nome Cardapio *</label>
-            <div class="col-sm-2">
-                <input type="text" class="form-control-plaintext" name="nome_cardapio" id="" placeholder="Nome do Cardapio"
-                    value="{{ old('nome_cardapio') }}">
-                {{ $errors->has('nome_cardapio') ? $errors->first('nome_cardapio') : '' }}
-            </div>
-
-        </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Descreva o Cardapios</label>
             <textarea class="form-control col-10" name="desc_cardapio" id="" label-class="text-info" rows="3"
                 value="{{ old('desc_cardapio') }}"></textarea>
             {{ $errors->has('desc_cardapio') ? $errors->first('desc_cardapio') : '' }}
         </div>
-
         <x-adminlte-button class="btn-flat" type="submit" label="Salvar" theme="success" icon="fas fa-lg fa-save" />
+        <a href="{{ url('admin/cardapios/list') }}" class="btn btn-md bg-warning text-primary mx-1 shadow"><i
+            class="fa fa-lg fa-exclamation-triangle"></i>Relação de Cardapios</a>
     </form>
 @stop
 @section('css')

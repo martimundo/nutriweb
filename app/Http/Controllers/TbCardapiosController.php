@@ -14,8 +14,7 @@ class TbCardapiosController extends Controller
      */
     public function index() {
 
-        $dados['cardapios']=TbCardapios::paginate(4);
-        return view('cardapio.cardapios_list', $dados);
+        return view('cardapio.index');
     }
 
     /**
@@ -23,10 +22,14 @@ class TbCardapiosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('cardapio.cardapios_create');
+    public function create()    {
 
+
+    }
+    public function list()
+    {
+        $dados['cardapios']=TbCardapios::paginate(4);
+        return view('cardapio.cardapios_list', $dados);
     }
 
     /**
@@ -38,17 +41,17 @@ class TbCardapiosController extends Controller
     public function store(Request $request)
     {
         $campos=[
-            'nome_cardapio'=>'required|string|max:50',
+
             'desc_cardapio'=>'required|string|max:150',
         ];
         $messagem=[
-            'nome_cardapio.required'=>'O campo nome do cardapio é obrigatório',
+
             'desc_cardapio.required'=>'Preencha o campo descrição cardapio'
         ];
         $this->validate($request, $campos, $messagem);
         $cardapio = request()->except('_token');
         $cardapio = new tbCardapios();
-        $cardapio->nome_cardapio=$request->input('nome_cardapio');
+
         $cardapio->desc_cardapio=$request->input('desc_cardapio');
         $cardapio->save();
 
@@ -72,10 +75,10 @@ class TbCardapiosController extends Controller
      * @param  \App\Models\tbCardapios  $tbCardapios
      * @return \Illuminate\Http\Response
      */
-    public function edit(tbCardapios $tbCardapios)
+    public function edit($id)
     {
-        $cardapio = TbCardapios::findOrfail($id);
-        return view('cardapio.cardapio_edit', compact('cardapio'));
+        $cardapio = TbCardapios::find($id);
+        return view('cardapio.cardapios_edit', compact('cardapio'));
     }
 
     /**
@@ -85,9 +88,13 @@ class TbCardapiosController extends Controller
      * @param  \App\Models\tbCardapios  $tbCardapios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tbCardapios $tbCardapios)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $cardapio = tbCardapios::find($id);
+        $cardapio->update($data);
+        return redirect()->route('cardapios_create');
+
     }
 
     /**
@@ -96,8 +103,10 @@ class TbCardapiosController extends Controller
      * @param  \App\Models\tbCardapios  $tbCardapios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tbCardapios $tbCardapios)
+    public function destroy($id)
     {
-        //
+        $cardapio = tbCardapios::find($id);
+        $cardapio->delete();
+        return redirect()->route('cardapios_list');
     }
 }

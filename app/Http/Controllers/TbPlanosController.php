@@ -14,7 +14,7 @@ class TbPlanosController extends Controller
      */
     public function index()
     {
-        //
+        return view('planos.index');
     }
 
     /**
@@ -27,6 +27,12 @@ class TbPlanosController extends Controller
         //
     }
 
+    public function list()
+    {
+        $dados['planos']=TbPlanos::paginate(4);
+        return view('planos.list', $dados);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +41,22 @@ class TbPlanosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campos=[
+
+            'desc_plano'=>'required|string|max:150',
+        ];
+        $messagem=[
+
+            'desc_plano.required'=>'O Campo nome do Plano é Obrigatório!'
+        ];
+        $this->validate($request, $campos, $messagem);
+        $plano = request()->except('_token');
+        $plano = new tbPlanos();
+
+        $plano->desc_plano=$request->input('desc_plano');
+        $plano->save();
+
+        return redirect()->action([TbPlanosController::class, 'index']);
     }
 
     /**
@@ -55,9 +76,10 @@ class TbPlanosController extends Controller
      * @param  \App\Models\tbPlanos  $tbPlanos
      * @return \Illuminate\Http\Response
      */
-    public function edit(tbPlanos $tbPlanos)
+    public function edit($id)
     {
-        //
+        $plano = TbPlanos::find($id);
+        return view('planos.edit', compact('plano'));
     }
 
     /**
@@ -67,9 +89,12 @@ class TbPlanosController extends Controller
      * @param  \App\Models\tbPlanos  $tbPlanos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tbPlanos $tbPlanos)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $plano = tbPlanos::find($id);
+        $plano->update($data);
+        return redirect()->route('index');
     }
 
     /**
@@ -78,8 +103,10 @@ class TbPlanosController extends Controller
      * @param  \App\Models\tbPlanos  $tbPlanos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tbPlanos $tbPlanos)
+    public function destroy($id)
     {
-        //
+        $plano= tbPlanos::find($id);
+        $plano->delete();
+        return redirect()->route('list');
     }
 }
