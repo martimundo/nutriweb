@@ -17,17 +17,17 @@
         <table class="table table-xl table-striped table-responsive table-bordered table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Cod</th>
-                    <th scope="col">Dific.Alimentar</th>
-                    <th scope="col">Circ.Cintura</th>
-                    <th scope="col">Circ.Quadril</th>
-                    <th scope="col">Altura</th>
-                    <th scope="col">Doenças Existentes</th>
-                    <th scope="col">Peso</th>
-                    <th scope="col">Pref.Alimentar</th>
-                    <th scope="col">Intolerancia</th>
-                    <th scope="col">Aversões</th>
-                    <th scope="col">Ações</th>
+                    <th>Cod</th>
+                    <th>Dific.Alimentar</th>
+                    <th>Circ.Cintura</th>
+                    <th>Circ.Quadril</th>
+                    <th>Altura</th>
+                    <th>Doenças Existentes</th>
+                    <th>Peso</th>
+                    <th>Pref.Alimentar</th>
+                    <th>Intolerancia</th>
+                    <th>Aversões</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>

@@ -14,6 +14,7 @@
     <form action="{{ url('admin/pacientes') }}" method="post">
         <input type="hidden" name="id" value="{{$paciente->id ?? ''}}">
         @csrf
+
         <div class="row">
             <x-adminlte-input igroup-size="sm" name="nome" label="Nome" placeholder="Nome do Paciente"
                 fgroup-class="col-md-6" value="{{$paciente->nome ?? old('nome') }}" />
@@ -36,22 +37,18 @@
         <div class="form-row">
             <div class="form-group col-md-4">
               <label for="input">Médica(o)Nutric...</label>
-              <select id="input" class="form-control form-control-sm" name="genero">
-                @foreach ( $nutricionista as $value )
-                <option selected>Selecione...</option>
-                <option value="{{$value->id}}">{{$value->nome}}</option> 
-                @endforeach
+              <select id="input" class="form-control form-control-sm" name="nutri_id">
+                    @foreach ($nutricionistas as $nutricionista)
+                        <option value="{{$nutricionista->id}}">{{$nutricionista->nome}}</option>
+                    @endforeach
               </select>
             </div>
-        </div><div class="form-row">
             <div class="form-group col-md-4">
-              <label for="input">Evolução Semanal</label>
-              <select id="input" class="form-control form-control-sm" name="genero">
-                <option selected>Selecione...</option>
-                <option value="Masculino">1</option>
-                
-              </select>
-            </div>
+                <label for="input">Evolução Semanal</label>
+                <select id="input" class="form-control form-control-sm" name="evolseman_id">
+                  <option value="1">1</option>
+                </select>
+              </div>
         </div>
         <x-adminlte-button class="btn-flat" type="submit" label="Salvar" theme="primary" icon="fas fa-sm fa-save" />
         <a href="{{ url('admin/pacientes/listar') }}" class="btn btn-md bg-warning text-primary mx-1 shadow"><i

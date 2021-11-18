@@ -35,7 +35,7 @@ class TbEvolucaoController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $campos=[
             'dific_alimentar'=>'required|string|max:150',
             'circ_cintura'=>'required',
@@ -54,22 +54,11 @@ class TbEvolucaoController extends Controller
             'altura.required'=>'Prencimento obrigatório!',
             'peso.required'=>'Prencimento obrigatório!'
 
-        ];
-        $this->validate($request, $campos, $mensagem);
-        $evolucao = new tbEvolucao();
-        $evolucao->dific_alimentar = $request->input('dific_alimentar');
-        $evolucao->circ_cintura = $request->input('circ_cintura');
-        $evolucao->circ_quadril = $request->input('circ_quadril');
-        $evolucao->altura = $request->input('altura');
-        $evolucao->doencas_exist = $request->input('doencas_exist');
-        $evolucao->peso = $request->input('peso');
-        $evolucao->pref_alimentar = $request->input('pref_alimentar');
-        $evolucao->intolerancia = $request->input('intolerancia');
-        $evolucao->aversoes = $request->input('aversoes');
-        dd($evolucao);
-        $evolucao->save();
-
-        return redirect()->action([TbEvolucaoController::class, 'index']);
+        ];        
+        $this->validate($request, $campos, $mensagem);        
+        $evolucao = request()->except('_token');
+        tbEvolucao::create($evolucao); 
+        return redirect()->action([TbEvolucaoController::class, 'list']);
 
     }
 
@@ -78,15 +67,7 @@ class TbEvolucaoController extends Controller
         $evolucao['evolucoes'] = tbEvolucao::paginate(5);
         return view('evolucoes.list', $evolucao);
     }
-    public function calcImc(Request $request){
-
-        $evolucao->altura = $request->input('altura');
-        $evolucao->peso = $request->input('peso');
-        $imc = $request->input('peso') /( $request->input('altura')*$request->input('altura'));
-        return $imc;
-
-    }
-
+    
     /**
      * Display the specified resource.
      *

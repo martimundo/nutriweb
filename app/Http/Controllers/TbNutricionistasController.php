@@ -13,11 +13,11 @@ class TbNutricionistasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $nutricionista['nutricionistas'] = tbNutricionistas::paginate();
+    {
+        $nutricionista['nutricionistas'] = tbNutricionistas::paginate(2);
         return view('gerenciar.nutricionistas', $nutricionista);
     }
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -39,7 +39,7 @@ class TbNutricionistasController extends Controller
         return redirect('nutricionistas')->with('mensagem','Nutricionista Cadastrada com sucesso!');
     }
     public function listar(){
-        $nutricionista['nutricionistas'] = tbNutricionistas::paginate();
+        $nutricionista['nutricionistas'] = tbNutricionistas::paginate(2);
         return view('gerenciar.list', $nutricionista);
     }
 

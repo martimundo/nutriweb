@@ -26,14 +26,14 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()    {
-       
+
         return view('home');
     }
     public function listarDados(){
 
-        $dados['pacientes']=tbPacientes::paginate(10);
-        return view('home', $dados);
+        $pacientes['pacientes']=tbPacientes::paginate();
+        return view('home', $pacientes);
     }
-       
+
 
 }

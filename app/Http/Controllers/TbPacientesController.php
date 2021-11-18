@@ -9,6 +9,13 @@ use App\Models\tbNutricionistas;
 
 class TbPacientesController extends Controller
 {
+
+    private $paciente;
+
+    public function __construct(TbPacientes $paciente){
+        $this->paciente = $paciente;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +23,8 @@ class TbPacientesController extends Controller
      */
     public function index()
     {
-        return view('pacientes.pacientes_create');
+        $nutricionistas = tbNutricionistas::all(['id', 'nome']);
+        return view('pacientes.pacientes_create', compact('nutricionistas'));
     }
 
     /**
@@ -24,16 +32,16 @@ class TbPacientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $nutricionista = TbNutricionistas::all(['id', 'nome']);
-        $evolucoe = TbEvolucoesSemanais::all(['id']);
-        return view('pacientes.pacientes_create', compact('nutricionista'));
+    public function create(Request  $request)    {
+
+        return view('pacientes.pacientes_create');
     }
     public function listar(Request  $request){
 
-        $dados['pacientes']=tbPacientes::paginate(10);
-        return view('pacientes.listar', $dados);
+        $dados=tbPacientes::paginate(2);
+        $nutricionistas = tbNutricionistas::all();
+        //dd($nutricionistas);
+        return view('pacientes.listar', ['pacientes'=>$dados,'nutricionistas'=>$nutricionistas] );
     }
 
     /**
@@ -45,7 +53,7 @@ class TbPacientesController extends Controller
     public function store(Request $request)
     {
         $msg = '';
-        
+
         //Processo que realiza a inclusão de um novo paciente
         if($paciente = request()->except('_token') != '' && $paciente = request()->input('id') ==''){
 
@@ -53,21 +61,23 @@ class TbPacientesController extends Controller
                 'nome'=>'required|string|max:150',
                 'email'=>'required|string|max:150',
                 'idade'=>'required|integer',
-                'nutri_id'=>'required|integer',
-                'evolseman_id'=>'required|integer',
+
             ];
             $messagem=[
-                'required'=>'O campo :attribute dever ser preenchido',
+
                 'nome.required'=>'O campo nome do é obrigatório',
                 'email.required'=>'Preencha o email do paciente',
                 'idade.required'=>'Informe a idade do paciente',
-                'nutri_id.required'=>'Informe a Médica',
-                'evolseman_id.required'=>'Informe qual a evoução'
+
             ];
+
             $this->validate($request, $campos, $messagem);
             $paciente = request()->except('_token');
+            //dd($paciente);
             $paciente = new tbPacientes();
+
             $paciente->create($request->all());
+
             return redirect()->action([TbPacientesController::class, 'listar']);
         }
         //realiza a edição de dados.

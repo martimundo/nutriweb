@@ -87,6 +87,7 @@
                                         <th>E-mail</th>
                                         <th>Idade</th>
                                         <th>Genero</th>
+                                        <th>Nutricionistras</th>
 
                                     </tr>
                                 </thead>
@@ -98,6 +99,7 @@
                                             <td>{{ $dado->eail }}</td>
                                             <td>{{ $dado->idade }}</td>
                                             <td>{{ $dado->genero }}</td>
+                                            <td>{{ $dado->nutri_id }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

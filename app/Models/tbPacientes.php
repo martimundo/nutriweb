@@ -5,22 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\tbEvolucoesSemanais;
+
 class tbPacientes extends Model
 {
     use HasFactory;
+    protected $table = 'tb_pacientes';
 
     protected $fillable = [
 
         'nome',
         'genero',
         'email',
-        'idade'
+        'idade',
+        'nutri_id',
+        'evolseman_id'
+
 
     ];
 
     public function nutricionista(){
 
-        return $this->belongsTo(tbNutricionistas::class);
+        return $this->belongsTo('App\Models\tbNutricionistas');
     }
 
     public function evolucao(){

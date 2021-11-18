@@ -63,7 +63,7 @@
                 @endforeach
             </tbody>
         </table>
-        {{$nutricionista->links()}}
+        {{$nutricionistas->links()}}
     </div>
     @stop
 </form>

@@ -43,11 +43,13 @@
         <x-adminlte-input igroup-size="sm"  name="intolerancia" label="intolerancia" placeholder="intolerâncias Alimentares" fgroup-class="col-md-4" value="{{old('intolerancia')}}"/>
         {{ $errors->has('intolerancia') ? $errors->first('intolerancia') : '' }}
     </div>
+    
 
     <x-adminlte-button class="btn-flat"  type="submit" label="Salvar" theme="success" icon="fas fa-lg fa-save"/>
     <a href="{{ url('admin/evolucoes/list') }}" class="btn btn-md bg-warning text-primary mx-1 shadow"><i class="fa fa-lg fa-exclamation-triangle"></i>Listagem de Evoluções</a>
     @stop
 </form>
+
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">

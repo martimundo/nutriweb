@@ -48,6 +48,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{$nutricionistas->links()}}
     </div>
 @stop
 @section('css')
@@ -55,5 +56,5 @@
 @stop
 
 @section('js')
-    
+
 @stop

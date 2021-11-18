@@ -13,6 +13,6 @@ class TbNutricionistasSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\tbNutricionistas::class, 15)->create();
+       // factory(\App\tbNutricionistas::class, 15)->create();
     }
 }

@@ -13,6 +13,6 @@ class tbPacientesSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\tbPacientes::class, 100)->create();
+        //factory(\App\tbPacientes::class, 100)->create();
     }
 }

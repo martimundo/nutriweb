@@ -30,6 +30,7 @@
                 </x-slot>
             </x-adminlte-input>
         </form>
+        
         <table class="table table-sm table-striped table-valign-middle table-responsive">
             <thead>
                 <tr>
@@ -38,27 +39,29 @@
                     <th scope="col">Email do Paciente</th>
                     <th scope="col">Idade do Paciente</th>
                     <th scope="col">Genero</th>
+                    <th scope="col">Médica Nutric.</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pacientes as $item)
+                @foreach ($pacientes as $paciente)
                     <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->nome }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>{{ $item->idade }}</td>
-                        <td>{{ $item->genero }}</td>
-                        <td><a href="{{ url('admin/pacientes/editar', $item->id) }}"
+                        <td>{{ $paciente->id }}</td>
+                        <td>{{ $paciente->nome }}</td>
+                        <td>{{ $paciente->email }}</td>
+                        <td>{{ $paciente->idade }}</td>
+                        <td>{{ $paciente->genero }}</td>
+                        <td>{{ $paciente->nutri_id}}</td>
+                        <td><a href="{{ url('admin/pacientes/editar', $paciente->id) }}"
                                 class="btn btn-xs btn-default text-primary mx-1 shadow" title="Editar">
                                 <i class="fa fa-lg fa-fw fa-pen"></i>
                             </a>
                         </td>
                         <td>
-                            <a href="{{ url('admin/pacientes/excluir', $item->id) }}"
+                            <a href="{{ url('admin/pacientes/excluir', $paciente->id) }}"
                                 class="btn btn-xs btn-default text-danger mx-1 shadow" title="Excluir">
                                 <i class="fa fa-lg fa-fw fa-trash"></i>
-                            </a>                            
+                            </a>
                         </td>
                         <td><a href="" class="btn btn-xs btn-default text-warning mx-1 shadow" title="Detalhes">
                                 <i class="fa fa-lg fa-fw fa-eye"></i></td>
