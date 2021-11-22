@@ -14,7 +14,7 @@ class TbNutricionistasController extends Controller
      */
     public function index()
     {
-        $nutricionista['nutricionistas'] = tbNutricionistas::paginate(2);
+        $nutricionista['nutricionistas'] = tbNutricionistas::paginate(10);
         return view('gerenciar.nutricionistas', $nutricionista);
     }
 

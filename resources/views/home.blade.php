@@ -96,10 +96,10 @@
                                         <tr>
                                             <td>{{ $dado->id }}</td>
                                             <td>{{ $dado->nome }}</td>
-                                            <td>{{ $dado->eail }}</td>
+                                            <td>{{ $dado->email }}</td>
                                             <td>{{ $dado->idade }}</td>
                                             <td>{{ $dado->genero }}</td>
-                                            <td>{{ $dado->nutri_id }}</td>
+                                            <td>{{ $dado->nutricionista->nome }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

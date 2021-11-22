@@ -18,6 +18,7 @@ class tbNutricionistas extends Model
 
 
     public function pacientes(){
-        return $this->hasMany('App\tbPacientes','nutri_id', 'id');
+
+        return $this->hasMany(tbPacientes::class,'nutri_id', 'id');
     }
 }

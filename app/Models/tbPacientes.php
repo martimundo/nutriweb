@@ -21,12 +21,11 @@ class tbPacientes extends Model
         'nutri_id',
         'evolseman_id'
 
-
     ];
 
     public function nutricionista(){
 
-        return $this->belongsTo('App\Models\tbNutricionistas');
+        return $this->belongsTo(tbNutricionistas::class, 'nutri_id', 'id');
     }
 
     public function evolucao(){

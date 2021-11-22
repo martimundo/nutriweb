@@ -38,10 +38,8 @@ class TbPacientesController extends Controller
     }
     public function listar(Request  $request){
 
-        $dados=tbPacientes::paginate(2);
-        $nutricionistas = tbNutricionistas::all();
-        //dd($nutricionistas);
-        return view('pacientes.listar', ['pacientes'=>$dados,'nutricionistas'=>$nutricionistas] );
+        $dados=tbPacientes::paginate();
+        return view('pacientes.listar', ['pacientes'=>$dados] );
     }
 
     /**

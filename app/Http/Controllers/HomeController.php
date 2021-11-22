@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\tbPacientes;
+use App\Models\tbNutricionistas;
 
 
 
@@ -31,8 +32,9 @@ class HomeController extends Controller
     }
     public function listarDados(){
 
-        $pacientes['pacientes']=tbPacientes::paginate();
-        return view('home', $pacientes);
+        $pacientes =tbPacientes::paginate();
+
+        return view('home', ['pacientes'=>$pacientes]);
     }
 
 
