@@ -78,30 +78,9 @@ class TbPacientesController extends Controller
 
             return redirect()->action([TbPacientesController::class, 'listar']);
         }
-        //realiza a edição de dados.
-        if($paciente = request()->except('_token') != '' && $paciente = request()->input('id') != ''){
-            $paciente = tbPacientes::find($request->input('id'));
-            $update = $paciente->update($request->all());
-
-            if($update){
-                echo "Dados atualizado com sucesso";
-
-            }else{
-                echo "Não foi possível atualizado os dados";
-            }
-            return redirect()->route('pacientes.listar');
-        }
 
     }
 
-    public function procurar(Request $request){
-
-        //dd("pesquisando por {$request->procurar}");
-        $pacientes = tbPacientes::where('id', $request->input('procurar'))->get();
-        dd($pacientes);
-        return view('pacientes.listar', ['paciente'=>$pacientes]);
-
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -113,7 +92,7 @@ class TbPacientesController extends Controller
     {
 
         $paciente = tbPacientes::find($id);
-        return view('pacientes.pacientes_create', ['paciente'=>$paciente, ]);
+        return view('pacientes.pacientes_edit', ['paciente'=>$paciente, ]);
 
     }
     public function excluir($id){
@@ -140,9 +119,13 @@ class TbPacientesController extends Controller
      * @param  \App\Models\tbPacientes  $tbPacientes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tbPacientes $tbPacientes)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $paciente = tbPacientes::find($id);
+        $paciente->update($data);
+
+        return redirect()->action([TbPacientesController::class, 'listar']);
     }
 
     /**

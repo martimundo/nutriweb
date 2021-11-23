@@ -45,9 +45,6 @@ Route::get('admin/pacientes', [App\Http\Controllers\TbPacientesController::class
 Route::get('admin/pacientes/listar', [App\Http\Controllers\TbPacientesController::class, 'listar'])->name('pacientes.listar');
 Route::get('admin/pacientes/editar/{id}', [App\Http\Controllers\TbPacientesController::class, 'editar'])->name('paciente.editar');
 Route::get('admin/pacientes/excluir/{id}', [App\Http\Controllers\TbPacientesController::class, 'excluir'])->name('paciente.excluir');
-//********************************Routes Get***********************************************
-Route::get('admin/controleAcesso', [App\Http\Controllers\TbAcessosController::class, 'index'])->name('cotrolacess');
-
 
 
 //********************************Routes Post***********************************************
@@ -67,7 +64,7 @@ Route::post('admin/nutricionistas', [App\Http\Controllers\TbNutricionistasContro
 //********************************Routes Post***********************************************
 Route::post('admin/pacientes/listar', [App\Http\Controllers\TbPacientesController::class, 'listar'])->name('pacientes.listar');
 Route::post('admin/pacientes',      [App\Http\Controllers\TbPacientesController::class, 'store'])->name('pacientes.index');
-Route::post('admin/pacientes/procurar', [App\Http\Controllers\TbPacientesController::class, 'procurar'])->name('pacientes.procurar');
+Route::post('admin/pacientes/{id}/update', [App\Http\Controllers\TbPacientesController::class, 'update'])->name('pacientes.update');
 
 
 

@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    <form action="{{ url('admin/pacientes') }}" method="post">
+    <form action="{{ url('admin/pacientes/'.$paciente->id.'/update') }}" method="post">
         <input type="hidden" name="id" value="{{$paciente->id ?? ''}}">
         @csrf
 
@@ -34,25 +34,8 @@
               </select>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="input">Médica(o)Nutric...</label>
-              <select id="input" class="form-control form-control-sm" name="nutri_id">
-                    @foreach ($nutricionistas as $nutricionista)
-                        <option value="{{$nutricionista->id}}">{{$nutricionista->nome}}</option>
-                    @endforeach
-              </select>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="input">Evolução Semanal</label>
-                <select id="input" class="form-control form-control-sm" name="evolseman_id">
-                  <option value="1">1</option>
-                </select>
-              </div>
-        </div>
         <x-adminlte-button class="btn-flat" type="submit" label="Salvar" theme="primary" icon="fas fa-sm fa-save" />
         <a href="{{ url('admin/pacientes/listar') }}" class="btn btn-md bg-warning text-primary mx-1 shadow"><i class="fa fa-lg fa-exclamation-triangle"></i>Lista de Pacientes</a>
-
     @stop
 </form>
 @section('css')
