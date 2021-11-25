@@ -22,7 +22,7 @@
                 disable-feedback />
         </div>
         <x-adminlte-button class="btn-flat" type="submit" label="Salvar" theme="success" icon="fas fa-lg fa-save" />
-        <a href="{{ url('admin/nutricionista/listar') }}" class="btn btn-md bg-warning text-primary mx-1 shadow"><i
+        <a href="{{ url('admin/nutricionistas/listar') }}" class="btn btn-md bg-warning text-primary mx-1 shadow"><i
                 class="fa fa-lg fa-exclamation-triangle"></i>Relação de Nutricionistas</a>
 
     </form>

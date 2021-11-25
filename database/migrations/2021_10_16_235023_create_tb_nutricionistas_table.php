@@ -17,7 +17,7 @@ class CreateTbNutricionistasTable extends Migration
             $table->id();
             $table->string('crn')->unique();
             $table->string('nome');
-            //$table->foreign('acesso_id')->references('id_acesso')->on('tb_acessos');
+            $table->string('foto')->nullable();           
             $table->timestamps();
         });
     }

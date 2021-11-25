@@ -46,19 +46,17 @@
                         <td><img class="img-thumbnail img-fluid" src="{{asset('storage'). '/'.$nutricionista->foto}}" width="100" alt=""></td>
                         <td>{{ $nutricionista->crn}}</td>
                         <td>{{ $nutricionista->nome }}</td>
-                        <td><a href=""
+                        <td><a href="{{ url('admin/nutricionistas/editar/'.$nutricionista->id) }}"
                                 class="btn btn-xs btn-default text-primary mx-1 shadow" title="Editar">
                                 <i class="fa fa-lg fa-fw fa-pen"></i>
                             </a>
                         </td>
                         <td>
-                            <a href=""
+                            <a href="{{ url('admin/nutricionistas/excluir/'.$nutricionista->id) }}"
                                 class="btn btn-xs btn-default text-danger mx-1 shadow" title="Excluir">
                                 <i class="fa fa-lg fa-fw fa-trash"></i>
                             </a>
-                        </td>
-                        <td><a href="" class="btn btn-xs btn-default text-warning mx-1 shadow" title="Detalhes">
-                                <i class="fa fa-lg fa-fw fa-eye"></i></td>
+                        </td>                        
                     </tr>
                 @endforeach
             </tbody>

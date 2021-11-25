@@ -39,8 +39,7 @@
                     <th scope="col">Email do Paciente</th>
                     <th scope="col">Idade do Paciente</th>
                     <th scope="col">Genero</th>
-                    <th scope="col">Médica Nutric.</th>
-                    <th scope="col">Foto</th>
+                    <th scope="col">Médica Nutric.</th>                    
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
@@ -52,8 +51,7 @@
                         <td>{{ $paciente->email }}</td>
                         <td>{{ $paciente->idade }}</td>
                         <td>{{ $paciente->genero }}</td>
-                        <td>{{ $paciente->nutricionista->nome}}</td>
-                        <td><img class="img-thumbnail img-fluid" src="{{asset('storage'). '/'.$paciente->nutricionista->foto}}" width="100" alt=""></td>
+                        <td>{{ $paciente->nutricionista->nome}}</td>                        
                         <td><a href="{{ url('admin/pacientes/editar', $paciente->id) }}"
                                 class="btn btn-xs btn-default text-primary mx-1 shadow" title="Editar">
                                 <i class="fa fa-lg fa-fw fa-pen"></i>
@@ -64,9 +62,7 @@
                                 class="btn btn-xs btn-default text-danger mx-1 shadow" title="Excluir">
                                 <i class="fa fa-lg fa-fw fa-trash"></i>
                             </a>
-                        </td>
-                        <td><a href="" class="btn btn-xs btn-default text-warning mx-1 shadow" title="Detalhes">
-                                <i class="fa fa-lg fa-fw fa-eye"></i></td>
+                        </td>                        
                     </tr>
                 @endforeach
             </tbody>

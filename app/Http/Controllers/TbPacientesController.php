@@ -134,8 +134,10 @@ class TbPacientesController extends Controller
      * @param  \App\Models\tbPacientes  $tbPacientes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tbPacientes $tbPacientes)
+    public function destroy($id)
     {
-        //
+        $paciente = tbPacientes::find($id);
+        $paciente->delete();
+        return redirect()->action([TbPacientesController::class, 'listar']);
     }
 }

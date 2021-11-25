@@ -17,8 +17,7 @@ class CreateTbAlertasTable extends Migration
             $table->id();
             $table->text('mensagem')->nullable();
             $table->integer('resolvido');
-            //$table->foreign('id_paciente')->references('id_pacientes')->on('tb_pacientes');
-
+            
             $table->timestamps();
         });
     }

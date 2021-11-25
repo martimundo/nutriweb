@@ -15,7 +15,7 @@ class CreateTbCardapiosTable extends Migration
     {
         Schema::create('tb_cardapios', function (Blueprint $table) {
             $table->id();
-            $table->text('desc_cardapio')->nullable();
+            $table->text('desc_cardapio');
             $table->timestamps();
         });
     }

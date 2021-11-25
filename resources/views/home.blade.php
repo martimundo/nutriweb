@@ -47,19 +47,7 @@
                         </div>
                         <a href="{{url('/admin/pacientes/listar')}}" class="small-box-footer">Mais detalhes <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                </div>
-                <div class="col-lg-3 col-6">
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>Inativos</h3>
-                            <p>Usuários Inativos</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">Mais detalhes <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
+                </div>                
             </div>
 
             <div class="row">
@@ -112,10 +100,11 @@
                 </div>
 
                 <div class="col-3">
+                    
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-user-shield"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Nutricionistras</span>
+                            <a href="{{url('/admin/nutricionistas/listar')}}"><span class="info-box-text">Nutricionistas</span></a>
                             <span class="info-box-number"></span>
                         </div>
                     </div>
@@ -153,8 +142,3 @@
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
-@section('js')
-    <script>
-        console.log('Hi!');
-    </script>
-@stop

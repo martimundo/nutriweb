@@ -60,9 +60,10 @@ class TbNutricionistasController extends Controller
      * @param  \App\Models\tbNutricionistas  $tbNutricionistas
      * @return \Illuminate\Http\Response
      */
-    public function edit(tbNutricionistas $tbNutricionistas)
+    public function editar($id)
     {
-        //
+        $nutricionista = tbNutricionistas::find($id);
+        return view('gerenciar.nutri_edit', ['nutricionista'=>$nutricionista]);
     }
 
     /**
@@ -72,9 +73,13 @@ class TbNutricionistasController extends Controller
      * @param  \App\Models\tbNutricionistas  $tbNutricionistas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tbNutricionistas $tbNutricionistas)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $nutricionistas = tbNutricionistas::find($id);
+        $nutricionistas->update($data);
+        return redirect()->action([TbNutricionistasController::class, 'listar']);
+        
     }
 
     /**
@@ -83,8 +88,11 @@ class TbNutricionistasController extends Controller
      * @param  \App\Models\tbNutricionistas  $tbNutricionistas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tbNutricionistas $tbNutricionistas)
+    public function destroy($id)
     {
-        //
+        $nutricionista = tbNutricionistas::find($id);
+        $nutricionista->delete();
+        
+        return redirect()->action([TbNutricionistasController::class, 'listar']);
     }
 }

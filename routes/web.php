@@ -38,14 +38,15 @@ Route::get('admin/evolucoes', [App\Http\Controllers\TbEvolucaoController::class,
 Route::get('admin/evolucoes/list', [App\Http\Controllers\TbEvolucaoController::class, 'list'])->name('list');
 Route::get('admin/evolucoes/{id}/editar', [App\Http\Controllers\TbEvolucaoController::class, 'edit'])->name('editar');
 //********************************Routes Get***********************************************
-Route::get('admin/nutricionista/listar', [App\Http\Controllers\TbNutricionistasController::class, 'listar'])->name('nutricionista_listar');
+Route::get('admin/nutricionistas/listar', [App\Http\Controllers\TbNutricionistasController::class, 'listar'])->name('nutricionista_listar');
 Route::get('admin/nutricionistas', [App\Http\Controllers\TbNutricionistasController::class, 'index'])->name('nutricionistas');
+Route::get('admin/nutricionistas/editar/{id}', [App\Http\Controllers\TbNutricionistasController::class, 'editar'])->name('nutricionistra.editar');
+Route::get('admin/nutricionistas/excluir/{id}', [App\Http\Controllers\TbNutricionistasController::class, 'destroy'])->name('nutricionistra.excluir');
 //********************************Routes Get***********************************************
 Route::get('admin/pacientes', [App\Http\Controllers\TbPacientesController::class, 'index'])->name('pacientes');
 Route::get('admin/pacientes/listar', [App\Http\Controllers\TbPacientesController::class, 'listar'])->name('pacientes.listar');
 Route::get('admin/pacientes/editar/{id}', [App\Http\Controllers\TbPacientesController::class, 'editar'])->name('paciente.editar');
-Route::get('admin/pacientes/excluir/{id}', [App\Http\Controllers\TbPacientesController::class, 'excluir'])->name('paciente.excluir');
-
+Route::get('admin/pacientes/excluir/{id}', [App\Http\Controllers\TbPacientesController::class, 'destroy'])->name('paciente.excluir');
 
 //********************************Routes Post***********************************************
 Route::post('admin/cardapios/index', [App\Http\Controllers\TbCardapiosController::class, 'store'])->name('cardapios');
@@ -61,6 +62,8 @@ Route::post('admin/evolucoes/{id}/update', [App\Http\Controllers\TbEvolucaoContr
 Route::get('admin/evolucoes/{id}/delete', [App\Http\Controllers\TbEvolucaoController::class, 'destroy'])->name('destroy');
 //********************************Routes Post***********************************************
 Route::post('admin/nutricionistas', [App\Http\Controllers\TbNutricionistasController::class, 'store'])->name('nutricionistas');
+Route::post('admin/nutricionistas/{id}/update', [App\Http\Controllers\TbNutricionistasController::class, 'update'])->name('nutricionistas.update');
+Route::post('admin/nutricionistas/{id}/destroy', [App\Http\Controllers\TbNutricionistasController::class, 'destroy'])->name('nutricionistas.destroy');
 //********************************Routes Post***********************************************
 Route::post('admin/pacientes/listar', [App\Http\Controllers\TbPacientesController::class, 'listar'])->name('pacientes.listar');
 Route::post('admin/pacientes',      [App\Http\Controllers\TbPacientesController::class, 'store'])->name('pacientes.index');

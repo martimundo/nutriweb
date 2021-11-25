@@ -113,8 +113,10 @@ class TbEvolucaoController extends Controller
      * @param  \App\Models\tbEvolucao  $tbEvolucao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tbEvolucao $tbEvolucao)
+    public function destroy($id)
     {
-        //
+        $evolucao = tbEvolucao::find($id);
+        $evolucao->delete();
+        return redirect()->route('list');
     }
 }
